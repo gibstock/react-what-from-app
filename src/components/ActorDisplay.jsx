@@ -17,8 +17,8 @@ const ActorDisplay = ({actor, results, showMovies, setShowMovies}) => {
           <div className='movie-container'>
             {Object.values(results[1].map((project) => {
               return (
-                <Link href={project.link}>
-                  <Card sx={{ minWidth: 275 }}>
+                <Link href={project.link} underline="none">
+                  <Card sx={{ minWidth: 275, marginTop: '.3em' }}>
                     <CardContent>
                       <Typography variant="h5" gutterBottom>
                         {project.title}
