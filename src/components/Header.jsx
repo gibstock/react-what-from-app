@@ -7,7 +7,7 @@ import Look from '../images/look.png'
 
 const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
   return(
-    <div className='header'>
+    <div className='flex-center'>
         <img src={WhatIs} alt="What is" />
         <input 
           className='main-input'
