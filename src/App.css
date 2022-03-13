@@ -31,6 +31,9 @@ body {
   text-align: center;
   border: none;
 }
+.main-input:focus .main-input:active{
+  outline: none;
+}
 
 .full {
   width: 100vw;
