@@ -1,8 +1,11 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
   box-sizing: 0;
-  background-color: #000;
+  background-color: #fafafa;
   color: #fff;
 }
 
@@ -11,7 +14,7 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding-top: 5vh;
+  padding: 5vh 1em 0 1em;
   background-color: #000;
   z-index: 1;
 }
@@ -26,6 +29,7 @@ body {
   padding: 1em;
   font-size: 2rem;
   text-align: center;
+  border: none;
 }
 
 .full {
@@ -38,9 +42,27 @@ body {
   border-radius: 5px;
   padding: 1em;
   font-size: 1.5rem;
+  margin: .3em 0;
+  border-color: #2196f3 ;
+  outline: none;
+  /* background-color: #2196f3; */
 }
 
 .actor-display {
   background-color: #fafafa;
   padding: 0 1em;
+  margin: 0 0;
+}
+
+.search-container {
+  display: flex;
+  
+  background-color: #fafafa;
+  border-radius: 25px;
+}
+
+@media screen and (min-width: 600px) {
+  .actor-display {
+    margin: 0 25vw;
+  }
 }

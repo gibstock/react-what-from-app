@@ -3,6 +3,8 @@ import axios from 'axios'
 import Header from './components/Header'
 import DisplayResults from './components/DisplayResults'
 import Loader from './components/Loader'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
+import Fab from '@mui/material/Fab';
 
 import './App.css'
 
@@ -62,6 +64,17 @@ const App = () => {
             handleKeyDown={handleKeyDown}
             handleSearchClick={handleSearchClick}
           />
+          <Fab 
+            className='to-top'
+            color='primary' 
+            href='#top'
+            sx={{
+              position: 'fixed',
+              bottom: '5px',
+              right: '5px'
+          }}>
+            <ArrowUpwardIcon />
+          </Fab>
           {(movieFilter.length > 0)? (
             <DisplayResults 
               actorResults={results[0]}

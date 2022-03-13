@@ -8,7 +8,8 @@ import Look from '../images/look.png'
 const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
   return(
     <div className='flex-center'>
-        <img src={WhatIs} alt="What is" />
+      <img src={WhatIs} alt="What is" />
+      <div className="search-container">
         <input 
           className='main-input'
           value={search}
@@ -16,19 +17,25 @@ const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
           onChange={(e) => setSearch(e.target.value)}
           onKeyDown={(e) => handleKeyDown(e)} 
         />
-        <img src={From} alt="From" />
         <Button 
-          variant="outlined"
+          variant="contained"
           startIcon={<SearchIcon />}
           onClick={() => handleSearchClick()}
+          size='large'
           sx={{
-            margin: "1em 0",
-            width: "90%",
-            padding: "1em",
-            color: "#fff",
-          }}>Search</Button>
-        <img src={Look} alt="Look" />
+            margin: "0 0",
+            // padding: "1em",
+            // color: "#000",
+            // backgroundColor: 'hsl(50, 10%, 55%)',
+            borderTopRightRadius: '25px',
+            borderBottomRightRadius: '25px'
+          }}>
+            
+        </Button>
       </div>
+      <img src={From} alt="From" />
+      <img src={Look} alt="Look" />
+    </div>
   )
 }
 

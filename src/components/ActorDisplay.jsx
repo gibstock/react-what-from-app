@@ -7,7 +7,7 @@ import ActorHeadShot from './ActorHeadShot';
 
 const ActorDisplay = ({actor, movieResults, showMovies, setShowMovies, movieFilter, filterItems}) => {
   return(
-    <div className='actor-display'>
+    <div className='actor-display' id='top'>
       <ActorHeadShot 
         actor={actor}
         setShowMovies={setShowMovies}
@@ -17,14 +17,14 @@ const ActorDisplay = ({actor, movieResults, showMovies, setShowMovies, movieFilt
           <div className='movie-container'>
             <input 
               className='secondary-search'
-              placeholder={`Search ${actor.name}'s Movies`}
+              placeholder={`Start typing to filter projects`}
               value={movieFilter}
               onChange={(e) => filterItems(e.target.value)}
             />
             {Object.values(movieResults.map((project) => {
               return (
                 <Link href={project.link} underline="none">
-                  <Card sx={{ minWidth: 275, marginTop: '.3em' }}>
+                  <Card raised sx={{ minWidth: 275, marginTop: '.3em' }}>
                     <CardContent>
                       <Typography variant="h5" gutterBottom>
                         {project.title}

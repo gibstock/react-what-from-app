@@ -12,7 +12,11 @@ import VideoCameraFrontOutlinedIcon from '@mui/icons-material/VideoCameraFrontOu
 
 const ActorHeadShot = ({actor: {profilePic, name, mainPage}, setShowMovies}) => {
   return(
-    <Card>
+    <Card raised
+      sx={{
+        marginTop: '1em'
+      }}
+    >
       <Grid container
         sx={{
           background: '#000'
