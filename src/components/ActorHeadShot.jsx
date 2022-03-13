@@ -13,38 +13,50 @@ import VideoCameraFrontOutlinedIcon from '@mui/icons-material/VideoCameraFrontOu
 const ActorHeadShot = ({actor: {profilePic, name, mainPage}, setShowMovies}) => {
   return(
     <Card>
-                <Grid container>
-                    <CardMedia 
-                      component="img"
-                      image={profilePic}
-                      alt={name}
-                      sx={{
-                        maxWidth: 400,
-                        margin: 'auto'
-                      }}
-                    />
-                </Grid>
-                <CardContent>
-                  <Typography variant='h2'>
-                    {name}
-                  </Typography>
-                  <Link 
-                    href={mainPage}
-                    underline="none">IMDB Profile</Link>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    variatnt="contained" 
-                    sx={{
-                      color: 'palette.primary.light',
-                      marginTop: '1em',
-                      marginBottom: '1em'
-                    }}
-                    startIcon={<VideoCameraFrontOutlinedIcon />}
-                    onClick={() => setShowMovies(true)}
-                    >Show Movies</Button>
-                </CardActions>
-              </Card>
+      <Grid container
+        sx={{
+          background: '#000'
+        }}
+      >
+        <CardMedia 
+          component="img"
+          image={profilePic}
+          alt={name}
+          sx={{
+            maxWidth: 178,
+            margin: 'auto',
+            background: '#fff',
+            padding: '1em'
+          }}
+        />
+      </Grid>
+      <CardContent>
+        <Typography variant='h2' align='center'>
+          {name}
+        </Typography>
+        <Grid container justifyContent='center'>
+          <Link href={mainPage}>
+            IMDB Profile
+          </Link>
+        </Grid>
+      </CardContent>
+      <CardActions>
+        <Grid container justifyContent='center'>
+          <Button
+            variant="outlined" 
+            // color='secondary'
+            size='large'
+            sx={{
+              marginTop: '1em',
+              marginBottom: '1em'
+            }}
+            startIcon={<VideoCameraFrontOutlinedIcon />}
+            onClick={() => setShowMovies(true)}>
+              Show Projects
+          </Button>
+        </Grid>
+      </CardActions>
+    </Card>
   )
 }
 

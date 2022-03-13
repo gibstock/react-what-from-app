@@ -32,3 +32,15 @@ body {
   width: 100vw;
   height: 100vh;
 }
+.secondary-search {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1em;
+  font-size: 1.5rem;
+}
+
+.actor-display {
+  background-color: #fafafa;
+  padding: 0 1em;
+}

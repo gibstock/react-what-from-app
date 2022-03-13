@@ -9,8 +9,10 @@ import './App.css'
 const App = () => {
   const [search, setSearch] = useState('')
   const [results, setResults] = useState({})
+  const [filteredResults, setFilteredResults] = useState([])
   const [showMovies, setShowMovies] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [movieFilter, setMovieFilter] = useState('')
   const URL = 'https://whatfromapi.herokuapp.com/actor/'
 
 
@@ -37,6 +39,17 @@ const App = () => {
       handleSearchClick()
     }
   }
+  const filterItems = (searchValue) => {
+    setMovieFilter(searchValue)
+    if(movieFilter.length > 0){
+      const filteredData = results[1].filter((project) => {
+        return project.title.toLowerCase().includes(movieFilter.toLowerCase())
+      })
+      setFilteredResults(filteredData)
+    } else {
+      setFilteredResults(results[1])
+    }
+  }
   return(
     <>
       {(isLoading) ? (
@@ -49,11 +62,27 @@ const App = () => {
             handleKeyDown={handleKeyDown}
             handleSearchClick={handleSearchClick}
           />
-          <DisplayResults 
-            results={results}
-            showMovies={showMovies}
-            setShowMovies={setShowMovies}
-          />
+          {(movieFilter.length > 0)? (
+            <DisplayResults 
+              actorResults={results[0]}
+              movieResults={filteredResults}
+              showMovies={showMovies}
+              setShowMovies={setShowMovies}
+              movieFilter={movieFilter}
+              filterItems={filterItems}
+            />
+
+          ):(
+            <DisplayResults 
+              actorResults={results[0]}
+              movieResults={results[1]}
+              showMovies={showMovies}
+              setShowMovies={setShowMovies}
+              movieFilter={movieFilter}
+              filterItems={filterItems}
+            />
+          )
+        }
         </>
       )}
     </>

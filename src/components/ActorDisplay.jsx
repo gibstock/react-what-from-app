@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ActorHeadShot from './ActorHeadShot';
 
-const ActorDisplay = ({actor, results, showMovies, setShowMovies}) => {
+const ActorDisplay = ({actor, movieResults, showMovies, setShowMovies, movieFilter, filterItems}) => {
   return(
     <div className='actor-display'>
       <ActorHeadShot 
@@ -15,7 +15,13 @@ const ActorDisplay = ({actor, results, showMovies, setShowMovies}) => {
       {(showMovies) && (
         <div className='actor-movies'>
           <div className='movie-container'>
-            {Object.values(results[1].map((project) => {
+            <input 
+              className='secondary-search'
+              placeholder={`Search ${actor.name}'s Movies`}
+              value={movieFilter}
+              onChange={(e) => filterItems(e.target.value)}
+            />
+            {Object.values(movieResults.map((project) => {
               return (
                 <Link href={project.link} underline="none">
                   <Card sx={{ minWidth: 275, marginTop: '.3em' }}>

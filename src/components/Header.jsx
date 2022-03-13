@@ -18,7 +18,7 @@ const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
         />
         <img src={From} alt="From" />
         <Button 
-          variant="contained"
+          variant="outlined"
           startIcon={<SearchIcon />}
           onClick={() => handleSearchClick()}
           sx={{
