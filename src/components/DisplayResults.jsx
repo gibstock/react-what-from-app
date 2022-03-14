@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ActorDisplay from './ActorDisplay';
 
-const DisplayResults = ({actorResults, movieResults, showMovies, setShowMovies, movieFilter, filterItems}) => {
+const DisplayResults = ({actorResults, movieResults, showMovies, setShowMovies, movieFilter, filterItems, fetchMoviePic, movieList}) => {
+  const [actorChecked, setActorChecked] = useState(false)
+  const [producerChecked, setProducerChecked] = useState(false)
+
+  const handleActorSwitch = (e) => {
+    setActorChecked(e.target.checked)
+  }
+  const handleProducerSwitch = (e) => {
+    setProducerChecked(e.target.checked)
+  }
   return(
-    <div className='display-results'>
+    <div className='display-results' >
       {(actorResults) && (
         Object.values(actorResults).map((actor) => {
           return (
@@ -12,9 +21,15 @@ const DisplayResults = ({actorResults, movieResults, showMovies, setShowMovies, 
               showMovies={showMovies}
               setShowMovies={setShowMovies}
               movieResults={movieResults}
-              key={actor.id}
+              key={actor.name}
               movieFilter={movieFilter}
               filterItems={filterItems}
+              actorChecked={actorChecked}
+              producerChecked={producerChecked}
+              handleActorSwitch={handleActorSwitch}
+              handleProducerSwitch={handleProducerSwitch}
+              fetchMoviePic={fetchMoviePic}
+              movieList={movieList}
             />
           ) 
         })

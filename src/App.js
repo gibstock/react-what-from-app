@@ -15,7 +15,10 @@ const App = () => {
   const [showMovies, setShowMovies] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [movieFilter, setMovieFilter] = useState('')
+  const [movieList, setMovieList] = useState('')
+
   const URL = 'https://whatfromapi.herokuapp.com/actor/'
+  const URL2 = 'https://whatfromapi.herokuapp.com/movies/'
 
 
   const fetchData = async (actor) => {
@@ -23,6 +26,14 @@ const App = () => {
       const response = await axios.get(`${URL}${actor}`)
       setResults(response.data)
       setIsLoading(false)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const fetchMoviePic = async (movie) => {
+    try{
+      const response = await axios.get(`${URL2}${movie}`)
+      setMovieList(response.data[0].moviePoster)
     } catch (error) {
       console.error(error)
     }
@@ -48,6 +59,7 @@ const App = () => {
         return project.title.toLowerCase().includes(movieFilter.toLowerCase())
       })
       setFilteredResults(filteredData)
+      // setMovieList(filteredData.map)
     } else {
       setFilteredResults(results[1])
     }
@@ -83,6 +95,8 @@ const App = () => {
               setShowMovies={setShowMovies}
               movieFilter={movieFilter}
               filterItems={filterItems}
+              fetchMoviePic={fetchMoviePic}
+              movieList={movieList}
             />
 
           ):(
@@ -93,6 +107,9 @@ const App = () => {
               setShowMovies={setShowMovies}
               movieFilter={movieFilter}
               filterItems={filterItems}
+              fetchMoviePic={fetchMoviePic}
+              movieList={movieList}
+
             />
           )
         }
