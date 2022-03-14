@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: 0;
+  /* background-color: #000; */
   background-color: #fafafa;
   color: #fff;
 }
@@ -14,9 +15,10 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  padding: 5vh 1em 0 1em;
+  /* padding: 5vh 1em 0 1em; */
   background-color: #000;
   z-index: 1;
+  /* height: 100vh; */
 }
 .flex-center img {
   max-width: 100%;
@@ -59,13 +61,128 @@ body {
 
 .search-container {
   display: flex;
-  
   background-color: #fafafa;
   border-radius: 25px;
+  margin: 1em 0;
+}
+.loading-bar {
+  position: relative;
+  width: 60vw;
+  height: 10vw;
+  margin-bottom: 1em;
+  padding: .5em;
+  border: 5px solid hsl(200, 66%, 50%);
+}
+.loading-fill {
+  /* position: relative; */
+  height: 100%;
+  width: 100%;
+  background-color: #2196f3;
+  margin: 0;
+  padding: 0;
+  background-clip: padding-box;
+  animation: loader 15s linear;
+}
+.loading-fill::after {
+  content: "0%";
+  color: #fff;
+  font-size: 3em;
+  position: absolute;
+  right: 50%;
+  top: -150%;
+  transform: translateX(50%);
+  animation: count 15s linear;
+}
+.loading-text {
+  position: relative;
+  font-size: 1.5em;
+}
+#l-dot-one{
+  position: absolute;
+  top: 0;
+  animation: spread 1.5s linear  infinite;
+}
+#l-dot-two{
+  position: absolute;
+  top: 0;
+  animation: spread 1.5s linear .5s  infinite;
+}
+#l-dot-three {
+  position: absolute;
+  top: 0;
+  animation: spread 1.5s linear 1s infinite;
 }
 
 @media screen and (min-width: 600px) {
   .actor-display {
     margin: 0 25vw;
+  }
+}
+
+@keyframes loader {
+  0% {
+    width: 0%;
+  }
+  5% {
+    width: 5%;
+  }
+  17% {
+    width: 17%;
+  }
+  33% {
+    width: 33%;
+  }
+  58% {
+    width: 58%;
+  }
+  77% {
+    width: 77%;
+  }
+  92% {
+    width: 92%;
+  }
+  99% {
+    width: 97%;
+  }
+}
+@keyframes count {
+  0% {
+    content: "0%";
+  }
+  5% {
+    content: "5%";
+  }
+  17% {
+    content: "17%";
+  }
+  33% {
+    content: "33%";
+  }
+  58% {
+    content: "58%";
+  }
+  77% {
+    content: "77%";
+  }
+  92% {
+    content: "92%";
+  }
+  99% {
+    content: "97%";
+  }
+}
+
+@keyframes spread {
+  0% {
+    transform: translateX(0%) scale(1);
+    top: 0;
+  }
+  50% {
+    transform: translateX(100px) scale(5);
+    top: 0;
+  }
+  100% {
+    transform: translateX(-10px) scale(.5);
+    top: 0;
   }
 }

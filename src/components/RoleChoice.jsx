@@ -11,7 +11,8 @@ const RoleChoice = ({actorChecked, producerChecked, handleActorSwitch, handlePro
       <FormControlLabel 
         control={
           <Switch
-            checked={actorChecked}
+            defaultChecked
+            // checked={actorChecked}
             onChange={handleActorSwitch} 
             color='secondary'/>} 
             name="Actor"
@@ -22,8 +23,8 @@ const RoleChoice = ({actorChecked, producerChecked, handleActorSwitch, handlePro
             checked={producerChecked}
             onChange={handleProducerSwitch}
             />} 
-            name="Producer"
-        label="Producer" />
+            name="Other"
+        label="Other" />
     </FormGroup>
   )
 }

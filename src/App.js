@@ -16,10 +16,16 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [movieFilter, setMovieFilter] = useState('')
   const [movieList, setMovieList] = useState('')
+  const [splashPadding, setSplashPadding] = useState('0 1em')
+  const [fullScreen, setFullScreen] = useState('100vh')
 
   const URL = 'https://whatfromapi.herokuapp.com/actor/'
   const URL2 = 'https://whatfromapi.herokuapp.com/movies/'
 
+  const splashStyle = {
+    padding: splashPadding,
+    height: fullScreen
+  }
 
   const fetchData = async (actor) => {
     try{
@@ -43,6 +49,8 @@ const App = () => {
     setIsLoading(true)
     fetchData(search)
     setShowMovies(false)
+    setFullScreen('auto')
+    setSplashPadding('5vh 1em 0 1em')
     for(let member in results[0]) {
       delete results[0][member]
     }
@@ -59,7 +67,6 @@ const App = () => {
         return project.title.toLowerCase().includes(movieFilter.toLowerCase())
       })
       setFilteredResults(filteredData)
-      // setMovieList(filteredData.map)
     } else {
       setFilteredResults(results[1])
     }
@@ -75,6 +82,7 @@ const App = () => {
             setSearch={setSearch}
             handleKeyDown={handleKeyDown}
             handleSearchClick={handleSearchClick}
+            splashStyle={splashStyle}
           />
           <Fab 
             className='to-top'

@@ -5,9 +5,10 @@ import WhatIs from '../images/what-is.png'
 import From from '../images/from.png'
 import Look from '../images/look.png'
 
-const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
+const Header = ({search, setSearch, handleKeyDown, handleSearchClick,splashStyle}) => {
+  
   return(
-    <div className='flex-center'>
+    <div className='flex-center' style={splashStyle}>
       <img src={WhatIs} alt="What is" />
       <div className="search-container">
         <input 
@@ -24,9 +25,6 @@ const Header = ({search, setSearch, handleKeyDown, handleSearchClick}) => {
           size='large'
           sx={{
             margin: "0 0",
-            // padding: "1em",
-            // color: "#000",
-            // backgroundColor: 'hsl(50, 10%, 55%)',
             borderTopRightRadius: '25px',
             borderBottomRightRadius: '25px'
           }}>

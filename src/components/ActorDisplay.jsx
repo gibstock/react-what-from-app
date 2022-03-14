@@ -1,14 +1,12 @@
 import React from 'react'
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
-import Grid from '@mui/material/Grid';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import ActorHeadShot from './ActorHeadShot';
 import RoleChoice from './RoleChoice';
 
-const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMovies, movieFilter, filterItems, handleActorSwitch, handleProducerSwitch, actorChecked, producerChecked, movieList}) => {
+const ActorDisplay = ({actor, movieResults, showMovies, setShowMovies, movieFilter, filterItems, handleActorSwitch, handleProducerSwitch, actorChecked, producerChecked, movieList}) => {
 
   
   return(
@@ -22,7 +20,7 @@ const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMo
           <div className='movie-container'>
             <input 
               className='secondary-search'
-              placeholder={`Start typing to filter projects`}
+              placeholder={`Search ${actor.name}`}
               value={movieFilter}
               onChange={(e) => filterItems(e.target.value)}
             />
@@ -31,7 +29,6 @@ const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMo
               handleProducerSwitch={handleProducerSwitch}
             />
             {Object.values(movieResults.map((project) => {
-              // fetchMoviePic(project.title)
               if(producerChecked) {
                 if(project.specialRole && project.specialRole.includes("producer")) {
                   return (
@@ -48,23 +45,6 @@ const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMo
                             {project.year}
                           </Typography>
                         </CardContent>
-                        {/* <Grid container
-                          sx={{
-                          background: '#000'
-                          }}
-                        >
-                          <CardMedia 
-                            component="img"
-                            image={movieList}
-                            alt={movieList}
-                            sx={{
-                              maxWidth: 178,
-                              margin: 'auto',
-                              background: '#fff',
-                              padding: '1em'
-                          }}
-                          />
-                        </Grid> */}
                       </Card>
                     </Link>
                   )
@@ -83,23 +63,6 @@ const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMo
                             {project.year}
                           </Typography>
                         </CardContent>
-                        {/* <Grid container
-                          sx={{
-                          background: '#000'
-                          }}
-                        >
-                          <CardMedia 
-                            component="img"
-                            image={movieList}
-                            alt={movieList}
-                            sx={{
-                              maxWidth: 178,
-                              margin: 'auto',
-                              background: '#fff',
-                              padding: '1em'
-                          }}
-                          />
-                        </Grid> */}
                       </Card>
                     </Link>
                   )
@@ -128,23 +91,6 @@ const ActorDisplay = ({fetchMoviePic, actor, movieResults, showMovies, setShowMo
                           </Typography>
                           )}
                         </CardContent>
-                        {/* <Grid container
-                          sx={{
-                          background: '#000'
-                          }}
-                        >
-                          <CardMedia 
-                            component="img"
-                            image={movieList}
-                            alt={movieList}
-                            sx={{
-                              maxWidth: 178,
-                              margin: 'auto',
-                              background: '#fff',
-                              padding: '1em'
-                          }}
-                          />
-                        </Grid> */}
                       </Card>
                     </Link>
                   )

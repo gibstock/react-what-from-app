@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ActorDisplay from './ActorDisplay';
 
 const DisplayResults = ({actorResults, movieResults, showMovies, setShowMovies, movieFilter, filterItems, fetchMoviePic, movieList}) => {
-  const [actorChecked, setActorChecked] = useState(false)
+  const [actorChecked, setActorChecked] = useState(true)
   const [producerChecked, setProducerChecked] = useState(false)
 
   const handleActorSwitch = (e) => {

@@ -17,38 +17,30 @@ const ActorHeadShot = ({actor: {profilePic, name, mainPage}, setShowMovies}) => 
         marginTop: '1em'
       }}
     >
-      <Grid container
-        sx={{
-          background: '#000'
-        }}
-      >
-        <CardMedia 
-          component="img"
-          image={profilePic}
-          alt={name}
-          sx={{
-            maxWidth: 178,
-            margin: 'auto',
-            background: '#fff',
-            padding: '1em'
-          }}
-        />
+      <Grid container justifyContent='center' sx={{ background: '#000' }}>
+        <Link href={mainPage}>
+          <CardMedia 
+            component="img"
+            image={profilePic}
+            alt={name}
+            sx={{
+              maxWidth: 178,
+              margin: 'auto',
+              background: '#fff',
+              padding: '1em'
+            }}
+          />
+        </Link>
       </Grid>
       <CardContent>
         <Typography variant='h2' align='center'>
           {name}
         </Typography>
-        <Grid container justifyContent='center'>
-          <Link href={mainPage}>
-            IMDB Profile
-          </Link>
-        </Grid>
       </CardContent>
       <CardActions>
         <Grid container justifyContent='center'>
           <Button
-            variant="outlined" 
-            // color='secondary'
+            variant="contained" 
             size='large'
             sx={{
               marginTop: '1em',
@@ -56,7 +48,7 @@ const ActorHeadShot = ({actor: {profilePic, name, mainPage}, setShowMovies}) => 
             }}
             startIcon={<VideoCameraFrontOutlinedIcon />}
             onClick={() => setShowMovies(true)}>
-              Show Projects
+              Movies
           </Button>
         </Grid>
       </CardActions>
